@@ -1,0 +1,88 @@
+{% load static%}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Forgot Password
+        </title>
+
+    </head>
+    <style>
+        Form{
+            color: white;
+
+        }
+        #id_password{
+        width: 230px;
+        height: 35px;
+        font-family: 'Times New Roman';
+
+        }
+        #b{
+            
+  background-image: url('{% static "img/images.png" %}');
+        }
+    
+    #id_Username{
+        width: 230px;
+        height: 35px;
+        font-family: 'Times New Roman';
+        
+        }
+        .log{
+            color: navy;
+            font-size: large;
+            font-family: 'Times New Roman';
+            font-weight: bold;
+        }
+        .h{
+            color: navy;
+            font-size: large;
+            font-family: 'Times New Roman';
+            font-weight: bold;
+        }
+    </style>
+    <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery/2.2.1/jquery.min.js"></script>
+        <header> 
+            <section class = "navsection">	
+                <div class="logo" style="float: left;; width:80%">
+                    <img src="{% static 'img/real_vmail.png' %}" alt = "logo" align = "left">
+                </div>
+                <nav>
+                    <li><a href= "/" class = "h" onmouseover="responsiveVoice.speak('Go to Home page','US English Female');"><b>Home</b></a></li>
+                    &nbsp; &nbsp;
+                    <li><a href = "{% url 'vlogin' %}" class="log" onmouseover="responsiveVoice.speak('GO TO LOGIN PAGE','US English Female')">Login</a>
+                        </li>
+                </nav>
+             </section>
+            </header>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+            
+        <link rel="stylesheet" href= "{% static 'css/style_forgot.css' %}">
+    <body id ="b">
+        <div id="wrapper">
+
+            <div id="contact_form_div">
+              <p id="contact_label">Change password</p>
+    <form method="post">
+        {%csrf_token%}
+
+        <div class="Form">
+         <label >Username</label> 
+         <input type="text" name="Username" required id="id_Username" onclick="responsiveVoice.speak('Enter valid username','US English Female');">  <br><br>
+         <label >New Password</label> 
+         <input type="password" name="Password" required id="id_password" onclick="responsiveVoice.speak('Enter New password','US English Female');">  <br><br>
+        </div>
+     <input type="submit" value="Save" onmouseover="responsiveVoice.speak('Save password','US English Female');">
+    <br>
+    <br> 
+<center>
+     {% if message %}
+     <h4>{{message}}</h4>
+    {% endif %}
+    </form> 
+    </body>
+    
+
+</html>

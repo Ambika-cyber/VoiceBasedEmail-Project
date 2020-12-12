@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery/2.2.1/jquery.min.js"></script>
+    <title>Conatct Us</title>
+
+</head>
+<header>
+    <section class = "navsection">	
+		<div class="logo" style="float: left;; width:80%">
+			<img src="{% static 'img/real_vmail.png' %}" alt = "logo" align = "left">
+		</div>
+		<nav>
+			<li><a href= "/" onmouseover="responsiveVoice.speak('GO TO HOME PAGE','US English Female');"><b>Home</b></a></li>		
+		</nav>
+     </section>
+    </header>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<link rel="stylesheet" href= "{% static 'css/style_contact.css' %}">
+<style>
+  body{
+    
+  background-image: url('{% static "img/images.png" %}');
+    overflow:visible;
+  }
+ 
+</style>
+<body onload="say()">
+<div id="wrapper">
+<div id="contact_form_div">
+ <p id="contact_label">CONTACT  FORM</p>
+ 
+  <form method="POST" action="">
+    {% csrf_token %}
+  <p><input type="text" placeholder="Enter Name" name = "name" onclick="responsiveVoice.speak('Enter your name','US English Female');"></p>
+  <p><input type="text" placeholder="Enter Email" name = "email" onclick="responsiveVoice.speak('Enter your Email','US English Female');"></p>
+  <p><input type="text" placeholder="Enter Contact No" name = "contact" onclick="responsiveVoice.speak('Enter your Contact number','US English Female');"></p>
+  <p><textarea placeholder="Enter Message" name = "message" onclick="responsiveVoice.speak('Enter your message','US English Female');"></textarea></p>
+  <p><input type="submit" value="SUBMIT" class = "btn" onmouseover="responsiveVoice.speak('Submit Form','US English Female');"></p>
+  {% for messgae in messages %}
+  <h4>{{messgae}}</h4>
+{% endfor %}
+
+ </form>
+
+</div>
+
+</div>
+</body>
+<script>
+ function say(){
+        responsiveVoice.speak("Welcome to Contact Us page, Enter your valid information to contact us", 'US English Female');
+    }
+</script>
+<br>
+<br><br>
+
+</html>

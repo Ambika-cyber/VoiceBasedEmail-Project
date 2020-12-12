@@ -1,0 +1,49 @@
+
+
+body  
+{  
+    background: white url("images.png") no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    overflow: hidden;
+    width:100%;
+    margin-top:40px;
+    padding:0px;
+    text-align:center;
+    font-family: "Times New Roman"
+}
+#yes-btn{
+        background-color:red;
+        border-color: white;
+        color: white;
+        cursor: pointer;
+        height:30px;
+        width:100px;
+        font-weight:bold;
+        font-size :15px;
+        font-family:times new roman;
+        text-transform:uppercase;
+
+  }
+  #no-btn:hover{
+    background-color:darkblue;
+    
+  }
+
+  #yes-btn:hover{
+      background-color: darkred;
+  }
+#no-btn{
+    background-color:blue;
+    border-color: white;
+    color: white;
+    cursor: pointer;
+    height:30px;
+    width:100px;
+    font-weight:bold;
+    font-size :15px;
+    font-family:times new roman;
+    text-transform:uppercase;
+
+}

@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SEND EMAIL</title>
+    <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery/2.2.1/jquery.min.js"></script>
+    
+    <script>
+      function say(){
+          responsiveVoice.speak("Enter reciever email, your subject and message here to send mail", 'US English Female');
+      }
+    </script>
+</head>
+<header>
+  <section class = "navsection">	
+		<div class="logo" style="float: left;; width:80%">
+			<img src="{%static 'img/real_vmail.png '%}" alt = "logo" align = "left">
+		</div>
+		<nav>
+      <li><a href = "/profile/" onmouseover="responsiveVoice.speak('View Profile','US English Female');"><b>View Profile</b></a></li>
+      <br>
+      <li><a href = "/vlogout/" onmouseover="responsiveVoice.speak('Log out','US English Female');"><b>Log Out</b></a></li>
+		</nav>
+     </section>
+    </header>
+</header>
+<style>
+  body{
+  overflow:visible;
+}
+#start-btn{
+     border-radius: 50%;
+ } 
+ #img{
+     height: 30px;
+     width: 30px;
+ }
+
+ #start-btn:hover{
+   background:rgb(8, 46, 63);
+ }
+#send-btn:hover{
+    background:rgb(3, 26, 34);
+
+}
+
+body  
+{  
+    background-image: url('{% static "img/images.png" %}');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    overflow: hidden;
+    width:100%;
+    margin-top:40px;
+    padding:0px;
+    text-align:center;
+    font-family: "Myriad Pro","Helvetica Neue",Helvetica,Arial,Sans-Serif;
+}
+
+
+#contact_form_div
+{
+margin-top: 30px;
+ width:500px;
+ margin-left: 550px;
+ padding:20px;
+ background-color: rgba(6, 51, 53, 0.6)
+}
+#contact_form_div #contact_label
+{
+ font-size:25px;
+ font-weight:bold;
+ color:white;
+ text-decoration:underline;
+}
+
+#contact_form_div input[type="text"]
+{
+ width:230px;
+ height:40px;
+ border-radius:2px;
+ font-size:17px;
+ padding-left:5px;
+ border:none;
+}
+
+#contact_form_div textarea
+{
+ width:230px;
+ height:100px;
+ border-radius:2px;
+ font-size:20px;
+ padding:10px;
+}
+
+.navsection{
+    width: 100%;
+    height: 20vh; 
+    display: flex;
+    justify-content: space-around;
+    align-items: left;
+
+
+}
+nav{
+    width:60%;
+    display: flex;
+    justify-content: space-around;
+} 
+
+
+#contact_form_div input[type="submit"]
+{
+
+ width:230px;
+ height:40px;
+ border:none;
+ border-radius:2px;
+ font-size:17px;
+ background-color:teal;
+border-right: 3px solid black;
+ 
+ border-bottom:3px solid black;
+ color: white;
+ font-weight:bold;
+}
+
+
+#id_Reciever_Email{
+    color: black;
+    font-size: 15px;
+    font-family:'arial';
+    width:230px;
+    margin-right: 50px;
+    height:35px;
+    
+
+}
+
+#id_Subject{
+    color: black;
+    font-size: 15px;
+    font-family:'arial';
+    width:450px;
+    height:35px;
+   margin-left: 17px;
+}
+
+#id_Message{
+    color: black;
+    font-size: 15px;
+    font-family:'arial';
+    width:350px;
+    margin-left: 17px;
+}
+
+body{
+
+  background-color:#8de0ff;
+}
+</style>
+<body onload="say()"> 
+</head>
+<style rel= "stylesheet" href= "{% static 'style_email.css'%}"></style>
+
+<div id="wrapper">
+
+<div id="contact_form_div">
+  <p id="contact_label">COMPOSE EMAIL</p>
+   
+<form method="post">
+    {% csrf_token %}
+<p><label for="id_Reciever_Email">Reciever Email </label> <input  placeholder = "Enter Reciever Email " type="email" name="Reciever_Email" required id="id_Reciever_Email" onclick="responsiveVoice.speak('Enter Reciver email','US English Female');"></p>
+<p><label for="id_Subject">Subject </label> <input placeholder="Enter your subject" type="text" name="Subject" required id="id_Subject" onclick="responsiveVoice.speak('Enter Subject','US English Female');"></p>
+<p><label for="id_Message">Message </label> <textarea   placeholder="Describe yourself here..." name="Message" cols="40" rows="10" required id="id_Message">
+</textarea></p>
+  <center><button type="button" id="start-btn" onmouseover="responsiveVoice.speak('Say your message','US English Female');" >
+    <img src="{% static 'img/microphone-513.png'%}" id="img">
+  </button>
+  </center>
+  <input type="submit" value="Send Mail" class="btn " id="send-btn" onmouseover="resposiveVoice.speak('Click Here To send MAil','US English Female');">
+  
+  {% for messgae in messages %}
+  <h4>{{messgae}}</h4>
+{% endfor %}
+
+</form>
+</div>
+</div>
+</body>
+<script src="{% static 'js/script.js'%}" type="text/javascript"></script>  
+    
+</html>

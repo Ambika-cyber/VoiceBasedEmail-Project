@@ -1,0 +1,98 @@
+<!DOCTYPE html>   
+{%load static%} 
+<html>    
+<head>    
+    <title>Login Form</title>    
+    <link rel="stylesheet" href="{% static 'css/style_login.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery/2.2.1/jquery.min.js"></script>
+</head>
+<header>
+    <nav> 
+        <li><a href = "/"><b>Home</b></a></li>
+    </nav>
+</header>
+
+<style>
+    .fg{
+        color: navy;
+        font-weight: bold;
+    }
+    body{
+  overflow:visible;
+  
+  background-image: url('{% static "img/images.png" %}');
+}
+.admin{
+    color:navy;
+    font-weight: bold;
+    
+}
+.signup{
+    color: navy;
+    font-weight: bold;
+}
+#log{  
+    width: 300px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 17px;  
+    padding-left: 7px;  
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Times New Roman';
+  
+} 
+.login{  
+        width: 382px;  
+        color: black;
+        overflow: hidden;  
+        margin: auto;  
+        margin: 20 0 0 450px;  
+        padding: 80px;  
+        background:rgba(13, 101, 104, 0.6);  
+        border-radius: 15px ;  
+        border-color: lightblue; 
+}  
+</style>   
+<body onload="say()">    
+    <h2>Login Page</h2><br>    
+    <div class="login"> 
+        
+    <form id = "login" method="POST" action="">
+        {% csrf_token %}
+        <label><b>User Name     
+        </b>    
+        </label>
+        <i class="fa fa-user icon"></i>
+        <input type="text" name="username" id="Uname" placeholder="Username"  onclick="responsiveVoice.speak('enter  your valid username','US English Female');">    
+        <br><br>    
+        <label><b>Password</b></label> 
+        <i class="fa fa-key icon"></i>
+        <input type="password" name="password" id="Pass" placeholder="Password"  onclick="responsiveVoice.speak('enter your valid password','US English Female');">    
+        <br><br>    
+        <button type="submit" name="log" id="log" class="btn2" onmouseover="responsiveVoice.speak('Do login','US English Female');">Login</button>
+        <br><br>    
+        <div class ="fp">
+         <a href="{% url 'forgotPass' %}" class = "fg" onmouseover="responsiveVoice.speak('If you forgot your password click here','US English Female');">Forgot Password</a> 
+        </div>
+        <br>
+        <a href="{% url 'vsignup' %}" onmouseover="responsiveVoice.speak('Go to Signup page','US English Female');" class="signup">Sign Up</a> 
+        &emsp; &emsp; &emsp; &emsp; &nbsp; <!--for 4 space we use emsp-->
+        <a href="{% url 'admin' %}" onmouseover="responsiveVoice.speak('Admin Login','US English Female');" class="admin">Admin Login</a> 
+        {% if error%}
+        <h2>{{error}}</h2>
+{% endif %}
+<br>
+<br>
+
+</div>    
+</body>    
+<script>
+    function say(){
+        responsiveVoice.speak("Welcome to Login page, Enter username and password here", 'US English Female');
+    }
+</script>
+</html>     

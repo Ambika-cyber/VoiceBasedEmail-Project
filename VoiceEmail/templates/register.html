@@ -1,0 +1,129 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Registration Form</title>    
+    <link rel="stylesheet" href= "{% static 'css/style_register.css' %}">
+    
+    <header>
+      <section class = "navsection">	
+        <div class="logo" style="float:center; width:80%">
+          <img src="{% static 'img/real_vmail.png' %}" alt = "logo">
+        </div>
+        <nav class = "nav">
+          <li><a href= "/" onmouseover="responsiveVoice.speak('Go to home page','US English Female');">Home</a></li>
+          <li><a href= "{% url 'vlogin' %}" onmouseover="responsiveVoice.speak('Go to Login page','US English Female');">Login</a></li>
+          
+        </nav>
+       </section>
+</head>
+<style>
+  body{
+    
+  background-image: url('{% static "img/images.png" %}');
+  }
+  #terms{
+    color: darkblue;
+  }
+  .navsection{
+    width: 100%;
+   height: 20vh; 
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+}
+
+.nav{
+   width:60%;
+   display: flex;
+   justify-content: space-around;
+    color: navy;
+    font-weight: bold;
+}
+
+nav a{
+   color:navy;
+   font-weight:bold;
+}
+
+.gmailid{
+    position: relative;
+    left: 200px;
+    top:-37px;
+    line-height: 40px;
+    width:532px;
+}
+body{
+  overflow:visible;
+}
+</style>
+<body onload="say()">   
+   
+    <div class="Regform"><h1>Registration Form</h1></div>
+    <div class = "main">  
+      <br>
+        <form method="POST" action="{% url 'vsignup' %}" onsubmit="if(document.getElementById('agree').checked) { return true; } else { alert('Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy'); return false; 
+      }"> 
+          
+          {% csrf_token %}
+          
+            <h2 class="name">Your Name</h2>
+            <input class = "gmailid" type = "text" name = "fname" placeholder = "Enter your Full Name" required  onclick="responsiveVoice.speak('enter Your name','US English Female');">
+            <h2 class= "name" >UserName</h2>
+            <input class = "Username" type = "text" name = "username" placeholder = "Create Username" required   onclick="responsiveVoice.speak('enter  your username','US English Female');">
+            <h2 class="name" >Password</h2>
+            <input class = "Password" type = "password" name = "password" minlength="4"  pattern ="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 4 or more character"  placeholder = "Create Password" required  onclick="responsiveVoice.speak('enter valid password, Password Must contain at least one number and one uppercase and lowercase letter, and at least 4 or more character','US English Female');">
+            <h2 class="name">Confirm Password</h2>
+            <input class = "Cpass" type = "password" name = "Cpass" minlength="4"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 4 or more character" placeholder = "Confirm Password" required  onclick="responsiveVoice.speak('enter confirm password','US English Female');">
+            <h2 class="name">Gmail ID</h2>
+            <input class = "gmailid" type = "email" name = "gmailid" placeholder = "Enter your Gmail Id" required  onclick="responsiveVoice.speak('enter valid gmail id','US English Female');">
+            
+            <h2 class="name">Age</h2>
+            <input class = "gmailid" type = "text" name = "Age" placeholder = "Enter your Age" title = "Age must be 18 years and above" required  onclick="responsiveVoice.speak('enter your age','US English Female');">
+            
+            <h2 class="name">City</h2>
+            <input class = "gmailid" type = "text" name = "City" placeholder = "Enter your City" required  onclick="responsiveVoice.speak('enter your city name','US English Female');">
+            
+            <h2 class="name">State</h2>
+            <input class = "gmailid" type = "text" name = "State" placeholder = "Enter your State" required  onclick="responsiveVoice.speak('enter your state name','US English Female');">
+            <h2 class="name">Country</h2>
+            <input class = "gmailid" type = "text" name = "Country" placeholder = "Enter your Country" required  onclick="responsiveVoice.speak('enter your country name','US English Female');">
+            <h2 class="name">Phone Number</h2>
+            <input class = "gmailid" type = "number" name = "Phone" placeholder = "Enter your Phone Number"   pattern="[1-9]{1}[0-9]{9}" title="Number musr contain 10 digits only" required  onclick="responsiveVoice.speak('enter valid your phone number','US English Female');">
+           <br>
+            <center>
+            <input type="checkbox" align = "center"  title = "Please accept the terms and cnditions" class= "terms" onmouseover="responsiveVoice.speak('I agree with terms and conditions and privacy policy of website ','US English Female');" required> <b>I agree with <a href="{% url 'terms'%}" id= "terms">terms and conditions and privacy Policy</a> of Website.</b>
+              <br>
+            <br>
+            <input type="submit" class="Btn1" value= "submit" onmouseover="responsiveVoice.speak('Submit form','US English Female');">
+
+          {%if pass_error%}
+              <h5>{{pass_error}}</h5>
+          {%endif%}
+
+          {% for messgae in messages %}
+            <h4>{{messgae}}</h4>
+          {% endfor %}
+         
+          <button type = "reset" class="resetbtn" onmouseover="responsiveVoice.speak('Reset FORM','US English Female');">
+       Reset</button>
+          </center>
+</div>
+</div>
+<h2><center>{{error}}</center></h2>
+</form>
+
+</body>
+<script src="https://code.responsivevoice.org/responsivevoice.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery/2.2.1/jquery.min.js"></script>
+<script>
+  function say(){
+      responsiveVoice.speak('Register yourself to use Send Voicemail',  'US English Female');
+  }
+ 
+   
+
+</script>
+</html>

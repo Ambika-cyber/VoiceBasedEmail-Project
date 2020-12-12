@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+{%  load static %}
+<html>
+<head>
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+<link rel="stylesheet" href= "{% static 'css/style_home.css' %}">
+
+</head>
+<style>
+	body{
+  overflow:visible;
+}
+
+</style>
+<script src="https://code.responsivevoice.org/responsivevoice.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery/2.2.1/jquery.min.js"></script>
+
+<script src="https://code.responsivevoice.org/responsivevoice.js?key=Rp2zWpLL"></script>
+
+<header>
+	<section class = "navsection">	
+		<div class="logo" style="float:center; width:80%">
+			<img src="{% static 'img/real_vmail.png' %}" alt = "logo">
+		</div>
+		<nav>
+			<li><a href= "/" >Home</a></li>
+			 <li ><a href="{% url 'about'%}" > About Us</a></li>
+			<li><a href= "{% url 'contact'%}" >Contact Us</a></li>
+		</nav>
+	 </section>
+	 <style>.h{
+		color:navy;
+	
+	}
+body{
+	
+	background-image: url('{% static "img/images.png" %}');
+}
+	.button{
+		background: yellow;
+	}
+	.button:hover {
+  background-color:rgb(190, 190, 12);
+}
+	</style>
+	<body onload="responsiveVoice.speak('Welcome To send Voice Mail Website, If you are new user please login yourself , If you are old user please regsiter yourself','US English Female');">
+	 <main>
+		<div align="center" class = "h">
+			<h1>Send Voice Mail</h1> 		
+			
+		 </div>
+		 
+	 	<div align="center">
+		</div>
+	 	
+		</div>
+		<div class= "page">
+			<div class= "form">
+				<form class = "home-form">  
+					<input class="button" type="button" id = "btn2" value="Create Account" onmouseover="responsiveVoice.speak('Create account', 'US English Female');" onclick="signup();"><br>
+				<br>
+				<p class="message">If User  have an account already  then do Log In</p>
+				<br>
+				<center>
+				
+				
+				
+				<input class="button" type="button" id = "btn1" value="Log In" onmouseover="responsiveVoice.speak('LOGIN', 'US English Female');" onclick="login();" >
+				
+				</form> 
+			</div>
+		</div>
+	</div>
+</main>
+
+
+</body>
+<script>
+	function signup(){
+		window.location.replace("/vsignup/")
+	
+	}
+	function login(){
+		window.location.replace("/vlogin/")
+	}
+
+
+
+
+</script>
+</header>
+
+</html>
+	

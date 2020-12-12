@@ -1,0 +1,32 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0px;
+    padding: 3px;
+    text-align: center;
+    font-family: cursive;
+}
+
+
+header{
+    padding: 5px;
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    overflow: hidden;
+    width:100%;
+    margin-top:40px;
+    padding:0px;
+    text-align:center;
+    color: black;
+    border-radius: 5px;
+    font-family: cursive;
+}
+section {
+    height: 400px;
+    background: #e4f8ff;
+    
+}
+

@@ -1,0 +1,148 @@
+
+*{margin: 0;
+padding: 0;
+box-sizing: border-box;}
+
+
+.team wrapper{
+    margin-top:10;
+}
+.team wrapper h1{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 52px;
+    margin-bottom: 60px;
+    text-align: center;
+
+}
+
+.team{
+    display: flex;
+    text-align: center;
+}
+
+
+header{
+    width: 100%;
+    height: 100vh;
+
+}
+.header {
+    padding: 60px;
+    text-align: center;
+    color: white;
+    font-size: 30px;
+}
+
+
+body {
+background: white url("images.png") no-repeat;
+background-size: cover;
+background-position: center;
+background-attachment: fixed;
+overflow: hidden;
+font-family: 'Times New Roman', Times, serif;
+margin-top: 40px;
+    
+}
+.page{
+    width:360px;
+    padding: 10% 0 0;
+    margin: auto;
+}
+
+.form{
+    position: relative;
+    background: rgba(0,0,0,0.6);
+    max-width: 360px;
+    margin: 0 auto 100px;
+    padding: 45px;
+    text-align: center;
+
+}
+
+.button{
+    font-family: 'Times New Roman', Times, serif;
+    text-transform: uppercase;
+    outline: 2;
+    border: 1px solid white;
+    color:black;
+    font-size: 14px;
+    font-weight:bold;
+    cursor: pointer;
+    width: 150px;
+    height: 50px;
+    border-radius: 12px;
+    text-align: center;
+    }
+.form .message{
+    font-size: 13px;
+    color:#ffffff;
+    
+}
+.form .message .a{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.navsection{
+    width: 100%;
+    height: 20vh; 
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+
+}
+
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+}
+
+nav{
+    width:60%;
+
+    display: flex;
+    justify-content: space-around;
+} 
+nav a{
+    text-decoration: none;
+    text-transform: uppercase;
+    color: navy;
+    font-weight: 900;
+    font-size: 17px;
+    position: relative;
+}  
+
+nav a:first-child{
+    color: navy;
+}
+.logo img{
+    height:200px;
+}
+
+.boxed {
+    width: 800px;
+    height: 100px;
+    padding: 50px;
+
+    top: 80%;
+    left: 40%;
+    position: absolute;
+    margin-top: -200px;
+    margin-left: -250px;
+}
+
+
+p{
+            font-size: 20px;
+            font-family:Georgia,serif;
+            color: white;
+            text-align: center;
+            
+        }
+        

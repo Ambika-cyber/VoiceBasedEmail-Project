@@ -1,0 +1,56 @@
+<html>
+{%load static%}
+
+<head>
+
+</head>
+<header>
+    <nav>
+        
+        <li><a href = "/profile/"><b> View Profile</b></a></li>
+        
+    </nav>
+</header>
+<link rel="stylesheet" href= "{% static 'css/style_register.css' %}">
+<style>
+  body{
+    
+  background-image: url('{% static "img/images.png" %}');
+  }
+</style>
+<body>    
+    <div class="Regform"><h1>Update User Profile </h1></div>
+    <div class = "main">  
+      <br>
+        <form method="POST" action="{% url 'edit' %}"> 
+
+          {% csrf_token %}
+          
+            <h2 class="name">Your Name</h2>
+            <input class = "gmailid" type = "text" name = "fname" value = {{data.Name}} placeholder = "Enter your Full Name"required  onclick="responsiveVoice.speak('enter Your name','US English Female');">
+            <h2 class="name">Gmail ID</h2>
+            <input class = "gmailid" type = "email" name = "gmailid" value = {{data.gmail_id}} placeholder = "Enter your Gmail Id" required  onclick="responsiveVoice.speak('enter valid gmail id','US English Female');">
+            <h2 class="name">City</h2>
+            <input class = "gmailid" type = "text" name = "City" value = {{data.City}} placeholder = "Enter your City" required  onclick="responsiveVoice.speak('enter your city name','US English Female');">
+            <h2 class="name">State</h2>
+            <input class = "gmailid" type = "text" name = "State"  value = {{data.State}} placeholder = "Enter your State" required  onclick="responsiveVoice.speak('enter your state name','US English Female');">
+            <h2 class="name">Country</h2>
+            <input class = "gmailid" type = "text" name = "Country"  value = {{data.Country}} placeholder = "Enter your Country" required  onclick="responsiveVoice.speak('enter your country name','US English Female');">
+            <h2 class="name">Phone Number</h2>
+            <input class = "gmailid" type = "number" name = "Phone" value = {{data.Phone_Number}} placeholder = "Enter your Phone Number" maxlength="10" pattern="[1-9]{1}[0-9]{9}" title="Number musr contain 10 digits only" required  onclick="responsiveVoice.speak('enter valid your phone number','US English Female');">
+          
+            <center>
+            <input type="submit" class="Btn1" value= "submit" onmouseover="responsiveVoice.speak('Submit form','US English Female');">
+
+          {% if status %}
+            <h4>{{status}}</h4>
+          {% endif %}
+         
+</div>
+</div>
+<h2><center>{{error}}</center></h2>
+</form>
+
+</body>
+</html>
+

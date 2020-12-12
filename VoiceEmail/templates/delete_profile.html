@@ -1,0 +1,45 @@
+<html>
+    {%load static%}
+    <head>
+        <title>Delete User</title>
+    </head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <link rel="stylesheet" href= "{% static 'css/del.css' %}">
+    <style>
+        body{
+  background-image: url('{% static "img/images.png" %}');
+        }
+    </style>
+    <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
+    <header>
+        <section class = "navsection" align= "left">	
+            <div class="logo" style="float:center; width:80%">
+                <img src="{% static 'img/real_vmail.png' %}" alt = "logo">
+            </div>
+    </header>
+    
+    <body onload="responsiveVoice.speak('Are you sure that you want to delete Your Profile','US English Female');">
+        <center>
+        <section>
+            <fieldset id = f>
+                <legend id =l align= "center"><b>Delete Profile</b></legend>
+            <form method="POST" action="{%url 'del'%}">
+            {% csrf_token %}
+                <br>
+            <p><b>Are you sure that you want to delete your profile ?</b></p><br><br>
+            <input type="submit" value="Yes" id = "yes-btn" onmouseover="responsiveVoice.speak('YES','US English Female');">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="{%url 'profile'%}">
+                <input type="button" value="NO" id= "no-btn" onmouseover="responsiveVoice.speak('NO','US English Female');"><br>
+            </a>
+        </form> 
+        </fieldset>
+        </section>
+
+        </center>
+        
+    </body>
+</html>
+
+
+

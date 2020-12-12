@@ -1,0 +1,135 @@
+
+
+<html>
+    {%load static%}
+    <head> 
+        <title>User Profile</title>
+        <link rel="stylesheet" href="{% static 'css/style_profile.css'%}">
+		<script src="https://code.responsivevoice.org/responsivevoice.js"></script>		
+
+<style>				 
+.navsection{
+    width: 100%;
+   height: 20vh; 
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+}
+
+.nav{
+   width:60%;
+   display: flex;
+   justify-content: space-around;
+    color:navy;
+    font-weight: bold;
+}
+
+nav a{
+   color:navy;
+   font-weight:bold;
+}
+.auto-style1{
+		
+			margin-left: 29px;
+			font-family: "Comic Sans MS"
+		}
+	
+    	
+.auto-style2 {
+			font-family: "Comic Sans MS";
+			font-size: large;
+			text-align: center;
+			border-style: solid;
+			border-color: #000000;
+			background-color:  #e4f8ff;
+			
+		}
+.auto-style3{
+
+	font-size: medium;
+	font-weight: bold;
+	color:black;
+}	
+
+.main{
+	background-image: url('{% static "img/images.png" %}');
+	background-repeat: no-repeat;
+	background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    overflow: hidden;
+    width:100%;
+}
+body{
+	
+	background-image: url('{% static "img/images.png" %}');
+}
+.auto-style4{
+
+font-size: medium;
+color:navy;
+}	
+</style>
+
+    <header>
+		<section class = "navsection">	
+		  <div class="logo" style="float:center; width:80%" align="left">
+			<img src="{% static 'img/real_vmail.png' %}" alt = "logo">
+		  </div>
+		  <nav class = "nav">
+			<li><a href = "/vmail/" onmouseover="responsiveVoice.speak('Send Mail','US English Female');"><b>Send Mail</b></a></li>
+			<li><a href = "/edit/" onmouseover="responsiveVoice.speak('Update Your Profile','US English Female');"><span class = "btn btn-success"><b>Edit Profile</b></span></a><li> 
+			<a href = "/del/" onmouseover="responsiveVoice.speak('Delete Your Profile','US English Female');"><span class = "btn btn-danger" ><b>Delete Profile</b></span></a>
+			<li><a href = "/vlogout/" onmouseover="responsiveVoice.speak('Log out','US English Female');"><b>Log Out</b></a> </li>
+		  </nav>
+		 </section>
+		<body id="b">
+		<div class="main">
+						<h3 class="auto-style1" align= "center">My Details</h3>
+						<center>
+						<table class="auto-style2" style="width: 30%; height: 515">
+							<tr>
+								<td style="width: 705px" class = "auto-style3">Username</td>
+								<td style="width: 796px" class = "auto-style4">&nbsp;{{user}}&nbsp;</td>
+							</tr>
+							
+							{% for i in d%}
+							<tr>
+								<td style="width: 705px" class = "auto-style3" >Your Name</td>
+								<td style="width: 796px" class = "auto-style4">&nbsp;{{i.Name}}</td>
+							</tr>
+							<tr>
+								<td style="width: 705px" class = "auto-style3">Email Id</td>
+								<td style="width: 796px" class = "auto-style4">&nbsp;{{i.gmail_id}}</td>
+							</tr>
+							<tr>
+								<td style="width: 705px" class = "auto-style3">City</td>
+								<td style="width: 796px" class = "auto-style4">&nbsp;{{i.City}}</td>
+							</tr>
+							<tr>
+								<td style="width: 705px" class = "auto-style3">State</td>
+								<td style="width: 796px" class = "auto-style4">&nbsp;{{i.State}}</td>
+							</tr>
+							<tr>
+								<td style="width: 705px" class = "auto-style3">Country</td>
+								<td style="width: 796px" class = "auto-style4">&nbsp;{{i.Country}}</td>
+							</tr>
+							<tr>
+								<td style="width: 705px" class = "auto-style3">Phone Number</td>
+								<td style="width: 796px" class = "auto-style4">&nbsp;{{i.Phone_Number}}</td>
+							</tr>
+						{%endfor%}
+						</table>
+							
+							</center>
+					</div>
+						
+						</body>
+
+			
+        </header>
+	</head>
+
+    <!-- <script src="https://code.responsivevoice.org/responsivevoice.js?key=Rp2zWpLL"></script> -->
+</html> 
+

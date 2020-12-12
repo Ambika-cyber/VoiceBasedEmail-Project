@@ -1,0 +1,40 @@
+
+body  
+{  
+    background: white url("images.png") no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    overflow: hidden;
+    font-family: 'Times New Roman', Times, serif;
+    margin-top: 40px;  
+} 
+h2{  
+    text-align: center;  
+    color:white;  
+    padding: 20px;  
+}  
+label{  
+    color: white;  
+    font-size: 17px;  
+}  
+#Uname{  
+    width: 300px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 3px;  
+    padding-left: 8px;  
+}  
+#Pass{  
+    width: 300px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 3px;  
+    padding-left: 8px;  
+      
+}  
+ 
+span{  
+    color: rgba(0, 0, 0, 0.6);  
+    font-size: 17px;  
+}  

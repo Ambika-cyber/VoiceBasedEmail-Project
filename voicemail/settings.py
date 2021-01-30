@@ -129,5 +129,5 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'mvoice064@gmail.com'
-EMAIL_HOST_PASSWORD = 'Ambika12@$123'
+EMAIL_HOST_USER = '######' # enter your email address from which you want to send email but you have to allow less secure app option in it to use from website.
+EMAIL_HOST_PASSWORD = '######' # enter your email password

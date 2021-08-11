@@ -18,3 +18,7 @@ website. Our website url : https://sendvoicemail.pythonanywhere.com
 -> Python text to speech library 
 -> JavaScript  Speech Recognition 
 -> HTML, CSS & JavaScript for web based user interface
+
+## Team members:
+1. Ambika Sadh
+2. Grecy Shrivastava
